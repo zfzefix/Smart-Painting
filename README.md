@@ -41,7 +41,7 @@ Akıllı Tablo projesinde kullandığımız teknolojiler ve yazılımlar şunlar
     from forex_python.converter import CurrencyRates
 
 Bu satırlar, kullanılacak kütüphaneleri içe aktarır.
-#######################################################################################################################################
+#############################################################################################
 
     class AkilliAynaGUI:
         def __init__(self, root):
@@ -52,7 +52,7 @@ Bu satırlar, kullanılacak kütüphaneleri içe aktarır.
 
 AkilliAynaGUI sınıfını tanımlar ve ana pencereyi oluşturur.
 
-#######################################################################################################################################
+#############################################################################################
 
         self.resim_ekrani = tk.Label(root, bg='black')
         self.resim_ekrani.pack(expand='true')
@@ -63,16 +63,15 @@ AkilliAynaGUI sınıfını tanımlar ve ana pencereyi oluşturur.
 
 Resim ekranı ve arayüz ekranı için tkinter etiketlerini oluşturur.
 
-#######################################################################################################################################
+##############################################################################################
 
-        self.PIR = 23
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.PIR, GPIO.IN)
 
 PIR sensörü için giriş pinini ayarlar.
 
-#######################################################################################################################################
+#############################################################################################
 
         self.resim_gorunur_sure = 5000  # Resmin görünür kalacağı süre (5 saniye)
         self.ara_sure = 5  # Hareket algılandıktan sonra tekrar resim ekranına geçiş süresi (5 saniye)
@@ -80,7 +79,7 @@ PIR sensörü için giriş pinini ayarlar.
 
 Resmin görüneceği süreyi ve geçiş süresini tanımlar, ardından hareket algılama fonksiyonunu başlatır.
 
-#######################################################################################################################################
+#############################################################################################
 
     def kontrol_hareket_algila(self):
         if self.hareket_algilama():
@@ -93,14 +92,14 @@ Resmin görüneceği süreyi ve geçiş süresini tanımlar, ardından hareket a
 
 Hareket algılama fonksiyonunu sürekli olarak kontrol eder ve ekranda değişiklik yapar.
 
-#######################################################################################################################################
+#############################################################################################
 
     def hareket_algilama(self):
         return GPIO.input(self.PIR) == 1
 
 PIR sensöründen gelen girişi okur ve hareket olup olmadığını kontrol eder.
 
-#######################################################################################################################################
+#############################################################################################
 
     def goster_arayuz_ekrani(self):
         self.resim_goster_timer = time.time() + self.resim_gorunur_sure
@@ -110,7 +109,7 @@ PIR sensöründen gelen girişi okur ve hareket olup olmadığını kontrol eder
 
 Arayüz ekranını gösterir ve belirli bir süre sonra resim ekranına geçişi planlar.
 
-#######################################################################################################################################
+#############################################################################################
 
     def gizle_arayuz_ekrani(self):
         if hasattr(self, 'resim_goster_timer') and time.time() < self.resim_goster_timer:
@@ -122,7 +121,7 @@ Arayüz ekranını gösterir ve belirli bir süre sonra resim ekranına geçişi
 
 Arayüz ekranını gizler ve resim ekranını gösterir.
 
-#######################################################################################################################################
+############################################################################################
 
     def tanimla_resim_ekrani(self):
         img = Image.open("/home/akillitablo/Downloads/dogs.jpg")
@@ -135,7 +134,7 @@ Arayüz ekranını gizler ve resim ekranını gösterir.
 
 Resim ekranını tanımlar ve resmi ekranda gösterir.
 
-########################################################################################################################################
+############################################################################################
 
     def cikis(self, event):
         GPIO.cleanup()
@@ -143,7 +142,7 @@ Resim ekranını tanımlar ve resmi ekranda gösterir.
 
 Programdan çıkış yapar ve GPIO pinlerini temizler.
 
-########################################################################################################################################
+############################################################################################
 
     def foto_cek(self, event):
         # Web kameradan fotoğraf çekme
@@ -165,7 +164,7 @@ Programdan çıkış yapar ve GPIO pinlerini temizler.
 
 Kameradan fotoğraf çeker, ekranda gösterir ve belirli bir süre sonra tekrar resim ekranını gösterir.
 
-########################################################################################################################################
+#############################################################################################
 
     class ArayuzEkranGUI:
         def __init__(self, root):
@@ -175,7 +174,7 @@ Kameradan fotoğraf çeker, ekranda gösterir ve belirli bir süre sonra tekrar 
 
 Arayüz ekranını tanımlar ve başlık ile boyutunu belirler.
 
-########################################################################################################################################
+#############################################################################################
 
         self.tarih_ve_saat_etiketi = tk.Label(root, font=('Arial', 40, 'bold'), background='black', foreground='turquoise')
         self.tarih_ve_saat_etiketi.pack(side='top', anchor='ne', padx=20, pady=20)
@@ -197,7 +196,7 @@ Arayüz ekranını tanımlar ve başlık ile boyutunu belirler.
 
 Etiketler ve diğer arayüz öğelerini oluşturur ve arayüzün güncellenmesini sağlar.
 
-#########################################################################################################################################
+##############################################################################################
 
     def tarih_saat_guncelle(self):
         an = time.localtime()
@@ -208,7 +207,7 @@ Etiketler ve diğer arayüz öğelerini oluşturur ve arayüzün güncellenmesin
 
 Tarih ve saat etiketlerini günceller.
 
-#########################################################################################################################################
+##############################################################################################
 
     def guncelle_kur_bilgisi(self):
         try:
@@ -223,7 +222,7 @@ Tarih ve saat etiketlerini günceller.
 
 Döviz kurlarını günceller.
 
-##########################################################################################################################################
+###############################################################################################
 
     def guncelle_hava_durumu(self):
         try:
@@ -243,14 +242,14 @@ Döviz kurlarını günceller.
 
 Hava durumunu günceller.
 
-##########################################################################################################################################
+################################################################################################
 
     def cikis(self, event):
         self.root.destroy()
 
 Programdan çıkar.
 
-##########################################################################################################################################
+################################################################################################
 
     if __name__ == "__main__":
         root = tk.Tk()
