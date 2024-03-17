@@ -3,56 +3,56 @@ Dokuz Eylül Üniversitesi Yönetim Bilişim Sistemleri bölümünde, Bilgisayar
 Akıllı Tablo projesinde kullandığımız teknolojiler ve yazılımlar şunlardır:
 
   Python: Programlama dili olarak Python kullanılmıştır. Python, projenin çeşitli bileşenlerinin geliştirilmesinde ve entegrasyonunda ana dil olarak tercih edilmiştir.
+  
+  Tkinter: Python'un standart kütüphanelerinden biri olan Tkinter, kullanıcı arayüzü (GUI) geliştirmek için kullanılmıştır. Proje içindeki arayüz bileşenleri Tkinter ile oluşturulmuştur.
 
-    Tkinter: Python'un standart kütüphanelerinden biri olan Tkinter, kullanıcı arayüzü (GUI) geliştirmek için kullanılmıştır. Proje içindeki arayüz bileşenleri Tkinter ile oluşturulmuştur.
+   OpenCV: OpenCV (Açık Kaynak Bilgisayar Görüşü) kütüphanesi, görüntü işleme ve video analizi gibi görsel işleme görevleri için kullanılmıştır. Projede kamera aracılığıyla görüntü almak ve işlemek için OpenCV kullanılmıştır.
 
-    OpenCV: OpenCV (Açık Kaynak Bilgisayar Görüşü) kütüphanesi, görüntü işleme ve video analizi gibi görsel işleme görevleri için kullanılmıştır. Projede kamera aracılığıyla görüntü almak ve işlemek için OpenCV kullanılmıştır.
+   PIL (Python Imaging Library): PIL, Python ile resim işleme görevlerini gerçekleştirmek için kullanılan bir kütüphanedir. Projede resimlerin işlenmesi ve gösterilmesi için PIL kullanılmıştır.
+    
+   RPi.GPIO: Raspberry Pi üzerindeki genel amaçlı giriş/çıkış (GPIO) pinlerini kontrol etmek için RPi.GPIO kütüphanesi kullanılmıştır. Projede PIR sensörü gibi donanım bileşenlerinin kontrolü için RPi.GPIO kullanılmıştır.
 
-    PIL (Python Imaging Library): PIL, Python ile resim işleme görevlerini gerçekleştirmek için kullanılan bir kütüphanedir. Projede resimlerin işlenmesi ve gösterilmesi için PIL kullanılmıştır.
+   requests: requests kütüphanesi, HTTP istekleri yapmak ve yanıtları işlemek için kullanılmıştır. Projede hava durumu bilgisi gibi dış kaynaklardan veri almak için requests kütüphanesi kullanılmıştır.
 
-    RPi.GPIO: Raspberry Pi üzerindeki genel amaçlı giriş/çıkış (GPIO) pinlerini kontrol etmek için RPi.GPIO kütüphanesi kullanılmıştır. Projede PIR sensörü gibi donanım bileşenlerinin kontrolü için RPi.GPIO kullanılmıştır.
+   Raspberry Pi 3B : Projemizin temel bileşeni olan Raspberry Pi 3B , donanım ve yazılım geliştirme platformu olarak kullanılmıştır.
 
-    requests: requests kütüphanesi, HTTP istekleri yapmak ve yanıtları işlemek için kullanılmıştır. Projede hava durumu bilgisi gibi dış kaynaklardan veri almak için requests kütüphanesi kullanılmıştır.
+   USB Klavye : Kullanıcının klavyeden giriş yaparak akıllı tabloyu kontrol etmesini sağlar.
 
-    Raspberry Pi 3B : Projemizin temel bileşeni olan Raspberry Pi 3B , donanım ve yazılım geliştirme platformu olarak kullanılmıştır.
+   PIR Sensörü (Hareket Algılama): Proje için PIR (Passive Infrared Sensor) sensörü kullanılarak hareket algılama sağlandı. Bu sensör, kullanıcının varlığını algıladığında belirli bir işlemi tetikliyor
 
-        USB Klavye : Kullanıcının klavyeden giriş yaparak akıllı tabloyu kontrol etmesini sağlar.
+   Web Kamera - Fotoğraf Çekimi: Projede bir web kamera kullanılarak fotoğraf çekimi sağlandı. Kamera, kullanıcı istediğinde belirli bir komutla açılıp ve fotoğraf çekip fotoğrafı işleyerek ekranda gösteriyor. 
+   
+   Monitor (Akıllı Tablo):   bir monitör akıllı tablo olarak kullanıldı. Bu monitör üzerinde Python ile geliştirilen bir kullanıcı arayüzü çalıştırılarak çeşitli bilgiler ve görseller gösteriliyor.
 
-    PIR Sensörü (Hareket Algılama): Proje için PIR (Passive Infrared Sensor) sensörü kullanılarak hareket algılama sağlandı. Bu sensör, kullanıcının varlığını algıladığında belirli bir işlemi tetikliyor
-
-    Web Kamera - Fotoğraf Çekimi: Projede bir web kamera kullanılarak fotoğraf çekimi sağlandı. Kamera, kullanıcı istediğinde belirli bir komutla açılıp ve fotoğraf çekip fotoğrafı işleyerek ekranda gösteriyor.
-
-    Monitor (Akıllı Tablo):   bir monitör akıllı tablo olarak kullanıldı. Bu monitör üzerinde Python ile geliştirilen bir kullanıcı arayüzü çalıştırılarak çeşitli bilgiler ve görseller gösteriliyor.
-
-    Bu teknolojiler ve yazılımlar, Akıllı Tablo projesinin geliştirilmesinde ve işlevselliğinin sağlanmasında önemli rol oynamıştır.
-
-
-
-    Şimdi her bir satırın ne yaptığını açıklayalım:
+   Bu teknolojiler ve yazılımlar, Akıllı Tablo projesinin geliştirilmesinde ve işlevselliğinin sağlanmasında önemli rol oynamıştır.
 
 
-import tkinter as tk
-from tkinter import ttk
-import time
-from PIL import Image, ImageTk
-import RPi.GPIO as GPIO
-import cv2
-import requests
-from forex_python.converter import CurrencyRates
+
+   Şimdi her bir satırın ne yaptığını açıklayalım:
+
+
+    import tkinter as tk
+    from tkinter import ttk
+    import time
+    from PIL import Image, ImageTk
+    import RPi.GPIO as GPIO
+    import cv2
+    import requests
+    from forex_python.converter import CurrencyRates
 
 Bu satırlar, kullanılacak kütüphaneleri içe aktarır.
-############################################################################################################################################
+#######################################################################################################################################
 
-class AkilliAynaGUI:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Akıllı Ayna")
-        self.root.attributes('-fullscreen', True)
-        self.root.configure(bg='black')
+    class AkilliAynaGUI:
+        def __init__(self, root):
+            self.root = root
+            self.root.title("Akıllı Ayna")
+            self.root.attributes('-fullscreen', True)
+            self.root.configure(bg='black')
 
 AkilliAynaGUI sınıfını tanımlar ve ana pencereyi oluşturur.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
         self.resim_ekrani = tk.Label(root, bg='black')
         self.resim_ekrani.pack(expand='true')
@@ -63,7 +63,7 @@ AkilliAynaGUI sınıfını tanımlar ve ana pencereyi oluşturur.
 
 Resim ekranı ve arayüz ekranı için tkinter etiketlerini oluşturur.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
         self.PIR = 23
         GPIO.setwarnings(False)
@@ -72,7 +72,7 @@ Resim ekranı ve arayüz ekranı için tkinter etiketlerini oluşturur.
 
 PIR sensörü için giriş pinini ayarlar.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
         self.resim_gorunur_sure = 5000  # Resmin görünür kalacağı süre (5 saniye)
         self.ara_sure = 5  # Hareket algılandıktan sonra tekrar resim ekranına geçiş süresi (5 saniye)
@@ -80,7 +80,7 @@ PIR sensörü için giriş pinini ayarlar.
 
 Resmin görüneceği süreyi ve geçiş süresini tanımlar, ardından hareket algılama fonksiyonunu başlatır.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
     def kontrol_hareket_algila(self):
         if self.hareket_algilama():
@@ -93,14 +93,14 @@ Resmin görüneceği süreyi ve geçiş süresini tanımlar, ardından hareket a
 
 Hareket algılama fonksiyonunu sürekli olarak kontrol eder ve ekranda değişiklik yapar.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
     def hareket_algilama(self):
         return GPIO.input(self.PIR) == 1
 
 PIR sensöründen gelen girişi okur ve hareket olup olmadığını kontrol eder.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
     def goster_arayuz_ekrani(self):
         self.resim_goster_timer = time.time() + self.resim_gorunur_sure
@@ -110,7 +110,7 @@ PIR sensöründen gelen girişi okur ve hareket olup olmadığını kontrol eder
 
 Arayüz ekranını gösterir ve belirli bir süre sonra resim ekranına geçişi planlar.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
     def gizle_arayuz_ekrani(self):
         if hasattr(self, 'resim_goster_timer') and time.time() < self.resim_goster_timer:
@@ -122,7 +122,7 @@ Arayüz ekranını gösterir ve belirli bir süre sonra resim ekranına geçişi
 
 Arayüz ekranını gizler ve resim ekranını gösterir.
 
-###############################################################################################################################################################################
+#######################################################################################################################################
 
     def tanimla_resim_ekrani(self):
         img = Image.open("/home/akillitablo/Downloads/dogs.jpg")
@@ -135,7 +135,7 @@ Arayüz ekranını gizler ve resim ekranını gösterir.
 
 Resim ekranını tanımlar ve resmi ekranda gösterir.
 
-###############################################################################################################################################################################
+########################################################################################################################################
 
     def cikis(self, event):
         GPIO.cleanup()
@@ -143,7 +143,7 @@ Resim ekranını tanımlar ve resmi ekranda gösterir.
 
 Programdan çıkış yapar ve GPIO pinlerini temizler.
 
-###############################################################################################################################################################################
+########################################################################################################################################
 
     def foto_cek(self, event):
         # Web kameradan fotoğraf çekme
@@ -165,17 +165,17 @@ Programdan çıkış yapar ve GPIO pinlerini temizler.
 
 Kameradan fotoğraf çeker, ekranda gösterir ve belirli bir süre sonra tekrar resim ekranını gösterir.
 
-###############################################################################################################################################################################
+########################################################################################################################################
 
-class ArayuzEkranGUI:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Arayüz Ekranı")
-        self.root.geometry("800x480")
+    class ArayuzEkranGUI:
+        def __init__(self, root):
+            self.root = root
+            self.root.title("Arayüz Ekranı")
+            self.root.geometry("800x480")
 
 Arayüz ekranını tanımlar ve başlık ile boyutunu belirler.
 
-###############################################################################################################################################################################
+########################################################################################################################################
 
         self.tarih_ve_saat_etiketi = tk.Label(root, font=('Arial', 40, 'bold'), background='black', foreground='turquoise')
         self.tarih_ve_saat_etiketi.pack(side='top', anchor='ne', padx=20, pady=20)
@@ -197,7 +197,7 @@ Arayüz ekranını tanımlar ve başlık ile boyutunu belirler.
 
 Etiketler ve diğer arayüz öğelerini oluşturur ve arayüzün güncellenmesini sağlar.
 
-###############################################################################################################################################################################
+#########################################################################################################################################
 
     def tarih_saat_guncelle(self):
         an = time.localtime()
@@ -208,7 +208,7 @@ Etiketler ve diğer arayüz öğelerini oluşturur ve arayüzün güncellenmesin
 
 Tarih ve saat etiketlerini günceller.
 
-###############################################################################################################################################################################
+#########################################################################################################################################
 
     def guncelle_kur_bilgisi(self):
         try:
@@ -223,7 +223,7 @@ Tarih ve saat etiketlerini günceller.
 
 Döviz kurlarını günceller.
 
-###############################################################################################################################################################################
+##########################################################################################################################################
 
     def guncelle_hava_durumu(self):
         try:
@@ -243,19 +243,19 @@ Döviz kurlarını günceller.
 
 Hava durumunu günceller.
 
-###############################################################################################################################################################################
+##########################################################################################################################################
 
     def cikis(self, event):
         self.root.destroy()
 
 Programdan çıkar.
 
-###############################################################################################################################################################################
+##########################################################################################################################################
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = AkilliAynaGUI(root)
-    app.tanimla_resim_ekrani()
+    if __name__ == "__main__":
+        root = tk.Tk()
+        app = AkilliAynaGUI(root)
+        app.tanimla_resim_ekrani()
 
     arayuz_ekran = ArayuzEkranGUI(root)
     root.mainloop()
@@ -263,15 +263,15 @@ if __name__ == "__main__":
 Ana program akışını başlatır ve tkinter uygulamasını çalıştırır.
 Bu kod parçası, Python'un tkinter kütüphanesini kullanarak grafiksel bir kullanıcı arayüzü (GUI) oluşturur ve bir Raspberry Pi'de çalışan "Akıllı Ayna" uygulamasının ana kısmını başlatır. İşte adım adım ne yaptığını açıklayalım:
 
-    root = tk.Tk(): Tk sınıfından bir nesne yaratılır. Bu, GUI uygulamasının ana penceresini temsil eder. tkinter kütüphanesinin temel bir bileşenidir ve uygulamanın tüm arayüzü bu pencere üzerinde oluşturulur.
+   root = tk.Tk(): Tk sınıfından bir nesne yaratılır. Bu, GUI uygulamasının ana penceresini temsil eder. tkinter kütüphanesinin temel bir bileşenidir ve uygulamanın tüm arayüzü bu pencere üzerinde oluşturulur.
 
-    app = AkilliAynaGUI(root): AkilliAynaGUI sınıfının bir örneği oluşturulur. Bu sınıf, akıllı ayna uygulamasının ana işlevselliğini yönetir. root parametresi, bu sınıfın ana pencere olarak kullanacağı Tk nesnesine referanstır. AkilliAynaGUI sınıfı, bir hareket algılama sensörü aracılığıyla hareket algıladığında arayüz ekranını gösteren ve belirli bir süre sonra resim ekranına geri dönen bir mantığı barındırır.
+   app = AkilliAynaGUI(root): AkilliAynaGUI sınıfının bir örneği oluşturulur. Bu sınıf, akıllı ayna uygulamasının ana işlevselliğini yönetir. root parametresi, bu sınıfın ana pencere olarak kullanacağı Tk nesnesine referanstır. AkilliAynaGUI sınıfı, bir hareket algılama sensörü aracılığıyla hareket algıladığında arayüz ekranını gösteren ve belirli bir süre sonra resim ekranına geri dönen bir mantığı barındırır.
 
-    app.tanimla_resim_ekrani(): AkilliAynaGUI sınıfındaki tanimla_resim_ekrani metodunu çağırır. Bu metod, uygulamanın başlangıcında görüntülenmesi gereken varsayılan resmi tanımlar ve ekranda gösterir. Bu genellikle, hareket algılanmadığında gösterilecek statik bir arka plan resmi veya hoş geldiniz mesajı olabilir.
+   app.tanimla_resim_ekrani(): AkilliAynaGUI sınıfındaki tanimla_resim_ekrani metodunu çağırır. Bu metod, uygulamanın başlangıcında görüntülenmesi gereken varsayılan resmi tanımlar ve ekranda gösterir. Bu genellikle, hareket algılanmadığında gösterilecek statik bir arka plan resmi veya hoş geldiniz mesajı olabilir.
 
-    arayuz_ekran = ArayuzEkranGUI(root): ArayuzEkranGUI sınıfının bir örneği oluşturulur. Bu sınıf, tarih ve saat, hava durumu, döviz kurları gibi bilgileri gösteren bir arayüz ekranının işlevselliğini sağlar. Ancak, bu sınıfın örneği oluşturulmuş olsa da, AkilliAynaGUI sınıfının içindeki mantık, ne zaman gösterileceğini kontrol eder. Bu kodun içinde, ArayuzEkranGUI doğrudan bir etkileşime girmez veya gösterilmez; bu durum kodun mevcut yapısına göre biraz yanıltıcı olabilir.
+   arayuz_ekran = ArayuzEkranGUI(root): ArayuzEkranGUI sınıfının bir örneği oluşturulur. Bu sınıf, tarih ve saat, hava durumu, döviz kurları gibi bilgileri gösteren bir arayüz ekranının işlevselliğini sağlar. Ancak, bu sınıfın örneği oluşturulmuş olsa da, AkilliAynaGUI sınıfının içindeki mantık, ne zaman gösterileceğini kontrol eder. Bu kodun içinde, ArayuzEkranGUI doğrudan bir etkileşime girmez veya gösterilmez; bu durum kodun mevcut yapısına göre biraz yanıltıcı olabilir.
 
-    root.mainloop(): tkinter uygulamasının olay döngüsünü başlatır. Bu, uygulamanın, kullanıcıdan gelen girişleri (örneğin, klavye tuş vuruşları veya fare hareketleri) dinlemeye başladığı ve kullanıcı arayüzünün etkileşimli olmasını sağlayan sonsuz bir döngüdür. Bu komut, pencere kapatılana kadar uygulamanın çalışmaya devam etmesini sağlar.
+   root.mainloop(): tkinter uygulamasının olay döngüsünü başlatır. Bu, uygulamanın, kullanıcıdan gelen girişleri (örneğin, klavye tuş vuruşları veya fare hareketleri) dinlemeye başladığı ve kullanıcı arayüzünün etkileşimli olmasını sağlayan sonsuz bir döngüdür. Bu komut, pencere kapatılana kadar uygulamanın çalışmaya devam etmesini sağlar.
 
 Bu kod, Raspberry Pi üzerinde çalışan ve kullanıcı etkileşimi sağlayan bir akıllı ayna uygulamasının temel yapısını oluşturur. Ancak, ArayuzEkranGUI sınıfının bu kod parçasında nasıl entegre edildiği ve kullanıldığı konusunda biraz daha açıklığa ihtiyaç olabilir.
 
