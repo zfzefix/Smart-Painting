@@ -274,4 +274,4 @@ Bu kod parçası, Python'un tkinter kütüphanesini kullanarak grafiksel bir kul
 
 Bu kod, Raspberry Pi üzerinde çalışan ve kullanıcı etkileşimi sağlayan bir akıllı ayna uygulamasının temel yapısını oluşturur. Ancak, ArayuzEkranGUI sınıfının bu kod parçasında nasıl entegre edildiği ve kullanıldığı konusunda biraz daha açıklığa ihtiyaç olabilir.
 
-###############################################################################################################################################################################
+###############################################################################################
