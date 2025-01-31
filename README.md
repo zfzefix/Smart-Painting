@@ -22,7 +22,7 @@ Akıllı Tablo projesinde kullandığımız teknolojiler ve yazılımlar şunlar
 
    Web Kamera - Fotoğraf Çekimi: Projede bir web kamera kullanılarak fotoğraf çekimi sağlandı. Kamera, kullanıcı istediğinde belirli bir komutla açılıp ve fotoğraf çekip fotoğrafı işleyerek ekranda gösteriyor. 
    
-   Monitor (Akıllı Tablo):   bir monitör akıllı tablo olarak kullanıldı. Bu monitör üzerinde Python ile geliştirilen bir kullanıcı arayüzü çalıştırılarak çeşitli bilgiler ve görseller gösteriliyor.
+   Monitor (Akıllı Tablo):  bir monitör akıllı tablo olarak kullanıldı. Bu monitör üzerinde Python ile geliştirilen bir kullanıcı arayüzü çalıştırılarak çeşitli bilgiler ve görseller gösteriliyor.
 
    Bu teknolojiler ve yazılımlar, Akıllı Tablo projesinin geliştirilmesinde ve işlevselliğinin sağlanmasında önemli rol oynamıştır.
 
